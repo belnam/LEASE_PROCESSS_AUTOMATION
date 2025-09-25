@@ -1,0 +1,70 @@
+{
+  "name": "RENTALS-PROCESS-AUTOMATION",
+  "description": "Rentals automation",
+  "main": "Main.xaml",
+  "dependencies": {
+    "ForEach.Core": "[7.1.0]",
+    "Google.Apis.Gmail.v1": "[1.55.0.2510]",
+    "Google.Apis.PeopleService.v1": "[1.55.0.2567]",
+    "Microsoft.AspNetCore.Http.Connections.Common": "[3.1.7]",
+    "Microsoft.Bcl.AsyncInterfaces": "[6.0.0]",
+    "UiPath.Excel.Activities": "[2.20.3]",
+    "UiPath.GSuite.Activities": "[2.1.2]",
+    "UiPath.Mail.Activities": "[1.15.2]",
+    "UiPath.MicrosoftOffice365.Activities": "[2.2.1-preview]",
+    "UiPath.Presentations.Activities": "[1.11.0]",
+    "UiPath.Python.Activities": "[1.6.0]",
+    "UiPath.System.Activities": "[21.10.3]",
+    "UiPath.UIAutomation.Activities": "[21.10.4]",
+    "UiPath.WebAPI.Activities": "[1.16.2]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "21.10.4.0",
+  "projectVersion": "1.0.9",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": true
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "0f249163-01bb-4865-adb5-de9cfe08b00f",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}

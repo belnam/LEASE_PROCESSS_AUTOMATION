@@ -1,0 +1,185 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GoogleDriveUpload" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/python" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="python_dll_path" Type="InArgument(x:String)" />
+    <x:Property Name="python_path" Type="InArgument(x:String)" />
+    <x:Property Name="gdwrkngdir" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1127,1452</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>GoogleDriveUpload_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Python</x:String>
+      <x:String>UiPath.Python.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.GSuite.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Presentations.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="GoogleDriveUpload" sap:VirtualizedContainerService.HintSize="546,1387" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <p:PythonScope OperationTimeout="{x:Null}" DisplayName="Python Scope" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="PythonScope_2" LibraryPath="[python_dll_path]" Path="[python_path]" TargetPlatform="x64" Version="Python &gt;=3.10" WorkingFolder="[gdwrkngdir]">
+      <p:PythonScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="PythonEngineSessionProperty" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,171" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <p:RunScript Code="{x:Null}" DisplayName="Run Python Script" sap:VirtualizedContainerService.HintSize="388,60" sap2010:WorkflowViewState.IdRef="RunScript_2" ScriptFile="Scripts\uploadgoogle.py" />
+          </Sequence>
+        </ActivityAction>
+      </p:PythonScope.Body>
+    </p:PythonScope>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Sign in - Google Accounts" sap:VirtualizedContainerService.HintSize="484,1028" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="99e84a80-200c-47b9-b26f-361b983323f7" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,811" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'DIV'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+              <ui:WaitUiElementAppear.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fa20d909-2089-4c58-a5f6-9da626ff9a24" InformativeScreenshot="9e872fb6e968d81fe5c6a62c2413ca4c" Selector="&lt;webctrl aaname='Innovative Toll' parentid='view_container' tag='DIV' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:WaitUiElementAppear.Target>
+            </ui:WaitUiElementAppear>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Innovative Tollinnovati…'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="99e84a80-200c-47b9-b26f-361b983323f7" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?client_id=448832788032-c81ecc9pvv5t0ebro5la7asks9kh9lf5.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;access_type=offline&amp;response_type=code&amp;service=lso&amp;o2v=1&amp;flowName=GeneralOAuthFlow" DesignTimeRectangle="744, 569, 448, 60" FriendlyName="'Innovative Tollinnovati…'" FullSelectorArgument="&lt;webctrl aria-role='link' idx='2' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='link' type='' tag='DIV' aaname='' check:text='Innovative Tollinnovativetollbots@gmail.com' /&gt;" Guid="2a271ac9-5519-44c0-a1da-57bb07602cbb" ImageBase64="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" InformativeScreenshot="41de074ee66d466d3b2d095d202f5125.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sign in - Google Accounts' /&gt;" SearchSteps="FuzzySelector, Image" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Continue'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="99e84a80-200c-47b9-b26f-361b983323f7" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://accounts.google.com/signin/oauth/warning?authuser=1&amp;part=AJi8hAPU0iv992mUhJ250KoSDVmXTvnf0t3L20z9Fkt3ctdgnJl7IoMYMaqMyJ4Q1pNltY-7UBaH88RL6Zb3V-faAScZT4wzHegRYdyyl9m12fsA5TYNnUeaMkhxyJh0QRS_l-lKqcwEuSPCx-rykSK6E77K_2E5Kl5TRnFem5_afDi-C_8-NbXYXW67aO8OmRxd_X60vAFoiyCjQxkWOJZgKofW-mcai5skyA-5gxQZrrK_Zd2fsFQcutz0SQThOBE1ypbemQF5UYkB5YQIVk2-IEEWWQ8HKttBD-sONukuESSdiGYvbkklidrh_JeZndyEnzVspV1OMU9RbOf-WcH43RWcfpMympWsHnfL1-NvD62eHaGBxqwXBQKzsrmPmbKkE3rC3qFuQrpPncKrkmr_Ky3XZEY99ZCTJpg77KvKUR8zPamTvD0q1iQAdKnwLRJRFXCLWTCx58h1JB6kVBW7NIcdb-uZ7g&amp;as=S1493738620%3A1692859792025038&amp;client_id=448832788032-c81ecc9pvv5t0ebro5la7asks9kh9lf5.apps.googleusercontent.com&amp;rapt=AEjHL4PuGaJYBbzMfXAPkIVUa1rJNPatzYDKQWhzQ7ME4NGW7jn6qjh0UGYpTjW6EOF3i1ooSZwaQKuUyy0p2wZ878JuFQuuQQ#" DesignTimeRectangle="784, 576, 61, 20" ElementType="Text" FriendlyName="'Continue'" FullSelectorArgument="&lt;webctrl aaname='Continue' parentid='view_container' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Continue' parentid='view_container' tag='SPAN' type='' check:text='Continue' /&gt;" Guid="9a128630-8cf6-496a-b11b-efa38fc5f41f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEEAAAAYCAYAAACldpB6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAL1SURBVFhH7ZbbSxRRHMf7O6Ik6KEiqCgKgqC3oF56CHoKoijoKYi8RFlrZhY9mBWYhLcwUDS6GnQTM7uqCIIhBqFR1t50dsfZi+vufjvfM3t2x13TWSp9aL4wzO5vzvn9fudzzu83swyO4EAQciAIORCEHAhCDgShHAjhWBI3u0LYVuHDikI3Vha5sad6Aj2fp5FMpgb9A9F3yd0gNri8+DQ+k7IujmZB+K7FsavKj1UlHhxu1NDyMYxb3SHsvOJHQbEbbX3h1Mg/V9VzA1sv+PAzkJD/CeH0PR2by70Y/rFEEGLxJA41aFh/1ov3X6ZTVlN89mwoKu9/S9kQllJpCANfY1hzxoPaV6GU5feKi7wb3oTkri0/6Zbgql8YspSojsGo9HWxYwoby8wxOy778FqUlB5JYu+NCWlT17HmgJxnBaPyqRA+OJfj6Ku9PyJPjfKj5lKcx/n0Q3Ecx1vzvPbSyNnMNASVeP9YLGWZW3R8VQQpEL3iSJOG9r4IitqCsoSOtwRkAPpiUPq79GQKNV0GNp33YrfoLf6pBLpHpnH0dkAmRZi9o2bMuSDQL/03vTXLcku5D6O+uC0I9wciWH3KA9cDHWP+OO58CGNtqUeCsCpvCOOib7Bplj/WJRAlniDOZ/IKQvO7TA+p6wlhXakXg99yF6w0F4RzYgEqTudwVEJ5KkpzIQjq+YE6bdbOlz3SZd/TQpm4eZeDGseFWmW1K6C0KWXb7EKwxrHaFoKgfnMzsq/suLYbY6M4tuzadk/CYkE4WK9hJm4+HxKvVuZPP8FwUpZfoSgla54j7hlMGJmYVBoCNd8rkt8MPEoMaKcnLATheqch57ge6rJ2I6Kp5gOBKm434zJ+vSi37ZXmztMP1doblq/2fTWTci0czx5xojWYBkfNgkDZ+Viy+3aYD4JXT2B/7aSMwbsRzR+CO5iQp5c5cnHcde6+gsB8CVjB4dxK0ahVnko5EP5HORCEHAhCDgQhB4KQA0HIgSDkQADwCzGfIZuY/ZtaAAAAAElFTkSuQmCC" InformativeScreenshot="de85702320cfe812bc9a4c7a0a1f27d9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sign in - Google Accounts' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="776, 568, 77, 36" ElementType="Button" FriendlyName="'Continue'" FullSelectorArgument="&lt;webctrl aaname='Continue' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Continue' tag='BUTTON' type='button' check:text='Continue' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFEAAAAoCAYAAACGohY/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM2SURBVGhD7ZbbS1RBGMD7O6Ik6KEiqCgKgqC3oF56CHoKoijoKYi8RFmamUUPZgUm4S0MFI2uBt3EzK4qgmCIQWiUtVfP7tmzV3f3a745O3VazZ2DX2Hw/WDZ3Tkz33znd+Z8M0uAWTAskQCWSABLJIAlEsASCWCJBLBEAlgiASyRAJZIAEskgCUSwBIJcC0xlsrC9d4obKn2w7JiDywv8cCuuiD0f0xCNpvr9BfA2GW3w7CuwgcfpmZyrYsDVxK/GmnYURuAFWVeONhiQPv7GNzoi8L2SwEoKvVA52As13Ph1D61YPM5P3wPZeR/lHjyjgkbq3ww9u0/lZhKZ+FAswFrT/vg7adkrtUGrz0ZTchvKvIlLma0JQ5/TsGqU15oeBHNtfyZtLjv5ldRuWqWHvdI8XXPLFkKkO6RhIx1vjsC6yvtPtsu+uGlKAlmPAu7rwVlm/ocaQvJcU6xKp9qEQPHYj+M1TUUl6tWxVFjERyH4zEOgv2wvzPPK88t14tBW6K68aHJVK5lbjCxyyLJIlErD7Ua0DUYh5LOsCwBR9tDMkGMhUljvAuPIlDfa8GGsz7YKWprIJKBvvEkHL4ZkjeFD2Ngwp5zLokYF+O3vrbLyqYqP0z401oS7w7HYeUJL1TcM2EykIZb72KwutwrRbqBXOKUqJu46VQ9NKVQBa5gHI83ryS2vflVQxv7o7Cm3AcjX2YLU8wl8YwQoObpGUtIqY9FaSkkUV3f12j8tvIqH5iy7htR/TJC/jqrfijKibNdPRBsU+S36Up0zuNsKyRR/caHmf/Jn7cQZBtLi3jtcNfUXYn/SuL+JgNm0vb1UXE0wvwxTjiWleWjWJQCZ57jnhkIWvoCEW2JyHxHHDwz4quACevUxEISr/ZYckzFfVPWrrjYlNxIREq77Hlx/iZRLrbW2CsP4yAdAzF5NNtTPy3vBftjjTzWEf4pXgdXEhGdw7bu7jyfRJ+Zgb0N03IO/LYS7iV6whn59mCOKAdXHa4+JRHzxQek5OLYGrHRqTx1cS2RmQ1LJIAlEsASCWCJBLBEAlgiASyRAJZIAEskgCUSwBIJYIkEsEQCWCIBLHHBAPwAFKZI4dVARU4AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'DIV'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="99e84a80-200c-47b9-b26f-361b983323f7" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://accounts.google.com/signin/oauth/v2/consentsummary?authuser=1&amp;part=AJi8hAPPbDgkKDBCMUM1K6Kob4madKF-2XyzUcnz3birFXzBDb4JL4TXlWWHisS4QBxNn4qLx19hz0FumgEpWVtHEl6DBvYIMNhItsVsVxgKD3oCyxFRyU_b74rjGKM4jdlhULyIGwXRttsgCX5cOeDl5XQCGipMdoGwRU6K2ZsVgZZS24jPI2OjKKOfI7uO0h4YeEjSBzBXmwX49TA4NFFSnObpbgoql9NXJC6JTMgaMat1tXj1f_C--sta3XsNHBeb3JmAFGn1tWhfZmxMcHMtwnch3Q81dN1bsdaL6oJJDeicD9dh1_mCgJ3gZXFxdtXB_RBcR-y93YmRmdf2QXq0cfEPIARssJL2mNV1DllY94DlFs3OMdAoKl9CY7fKsLds-kcsqdiEnfB3XEI_ZVyWEGYt-QukBKdCPEVbkoSrE8MBEVAjIM-QXbb6DmEEl4yF7oRH8y3i_BB2wPQLwtYZ2S9ZJnpXUdVtylZnCTcTFwnWUp190UyuC24LmquwwCJ0U04j5u5T_KN3O9lrZSc_VBFM7rcgMZnmpAr2fiFs-7f0PQGnTX0p8cHS7ZaaxJBTHBOvySC5m6EFSpbPeT2WqfU87rCvJQ&amp;hl=en&amp;as=S1493738620%3A1692859792025038&amp;client_id=448832788032-c81ecc9pvv5t0ebro5la7asks9kh9lf5.apps.googleusercontent.com&amp;rapt=AEjHL4PuGaJYBbzMfXAPkIVUa1rJNPatzYDKQWhzQ7ME4NGW7jn6qjh0UGYpTjW6EOF3i1ooSZwaQKuUyy0p2wZ878JuFQuuQQ" DesignTimeRectangle="970, 806, 182, 48" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl idx='3' isleaf='1' parentid='submit_approve_access' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' parentid='submit_approve_access' tag='DIV' aaname='' /&gt;" Guid="79cb283d-207c-4d69-8671-cb85f8a9ee7d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALoAAAA0CAYAAAA9tCJZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPgSURBVHhe7Z1NSxtRFIb7O/orsnTnL3DpLkt3LkMRQglVEHUhKLgQXAgusihoF8FNIAtpClKCGymCtqJC0UlivjQa0fD2nPmIkxBNxKbUnPeBu7hfMxN47p1z7wyTdyDEABSdmICiExNQdGICik5MQNGJCSg6MQFFJyZoE73RuMPv8zyOfp3i8OcJE9ObS+quOqwuh2mJrhXaqFKpodls+qWEvC3UXXVYXQ7L3hJdR4E2IGQYUJfV6YCW6DoCOJOTYUFdVqcDWqJrfEPIMBF2mqKToYWiExNQdGICik5MQNGJCSg6MQFFJyag6J3c15HdzGMicYH3MUkfLhBdKSJbuPcbDIhKGXE519hnPpEeBBQ9zLnIpoJPOYgnS8jsVZBJFxH7pMI7SJ757V5NFcsyiCbSdT8vqOhTFxjfpOiDgKIHNK+QnBWhE0Xkag9+oU+zjtxeSMpX00V0MlAoesB+ERGRb/WgQ/Ju3F8js+FgTGZgDW9GZwvYOrr1K4HchpQvFLG96WBUwhFtE10r4fBGKuU8bkjUSg62HO3VIb/bzsH6ThGTca/tyIyc57jh1TslTEjZ8r6XdfH7eMdTGjhMFxAN+iccrP7VAft2oOg+TtoRGQrI9XqXTWb3rUURR0KZ+XQZ2b0y1pe0ryPSeRK6ootYkTkRc7ciwucxJvlo6lpClCvpc4mY5MfXtX8Njtutm+ih84jwMQ2rZi/hvp7UU/QHnMpvimj/nSs4tTr203odcp0/2t/PtgBF9+lbdJEpIrIkT8Iz/w22l0TChRLUMU/0PDI6g7vcIrMiZYtefffQpbvo8V1/BheqX/OuyNsFyfQSvSnHk7vJ+JdwzH+H7Jpcx1pZ5npbUPQAV+DeoYs3ICSO9/MB4XIvdAmk9mgv61f0cBgihMt6ie7Xu3eFztRxbRag6AE9FqPZ1GOM3deM/o9En/7+GIZUd7wZ361vVDAvM3psp3VbER5QPbtCdcA7pf8jFD3Mc9uLItD0rkjYb4zeS3SRMDInC1bpn3O3LV8oOmpY/SjHTORlwSrXmSpg3F34BvUSo6ckRtdjbuhvKWNLFtAjkp/MhAeYDSh6J/08MOpr1+U50UXrXBFRv//qgVvyQtFl0j4uYXrGO4buqOgOzURbnwYOQ7s2kbgMxm+yIDYIRScmoOjEBBSdmICiExNQdGICik5MQNGJCSg6MQFFJyag6MQEXUXnR0bJMPHkR0b52WgyTDz52Wj+EQAZBtRddVhd7vpHAIpW6CjQRhrfMDG9taTuqsNhyZU20QkZVig6MQFFJyag6MQEFJ2YgKITE1B0YgKKTgwA/AEQUdJ1Znn/CQAAAABJRU5ErkJggg==" InformativeScreenshot="8c7dbf111a9b1f28b46aa3e010204b6b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sign in - Google Accounts' /&gt;" SearchSteps="Selector, FuzzySelector, Image" />
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARHSURBVFhHvZddbBRVFMf7YrAq+OSbD6Kgb0qUUh60xq9VtA8k1EJrH1CsGIM+GLUmBA0kFi0WSMCHLcVCTMO2GmjFCiUFpH60sUjMEtIGLaAWama32w92dt2vOf7PndPd3M7sdmobf8k/M/fec8//zJ07s7NFXrEsawlUnclkmqEBaAxKisLS14yYKo6VafMHyR5A4hYoTh5BbAw6iLnLJc3cQZ7bkKQRSttp5w7mpqBdKKRY0noDE+7HxEuSZ94gVxA5l0n6wiDwYUwIyVyN9I0RMls/p4l33qDwi8+R4VtNxjOlFF7no/G3XyfzcBOlR/6UaB3kNHBYITbuyJU7zNOj12ly+/tkPL2KjKdKCgsxkx++p+bMhIvIuxIYuB0BjmWPn+qi0Atl7mYFFCp/nP45e0qy5IAH3w7nnsBAo8RkMY8cck3uVVMN2yWTDrwaxNYGFfGjpu12vnK3pKxIbRVFD+yj+DdHKd51DOf7KfJatRYztbueyLIkmw68UtqtQEeLjCl4s4Wef0xLyBqrWUuJ8/0S5SQx0EfhDeV0c/+n0pMfeDYrc5zfiYb2konufdNhPr7lZbKmpiQiP5YZlbPCwNPEKizm5a+WPoUVG6ZU9yKarLsna86PXGYiIhELB7zX8/I3S1uRuVpPqZ5blMx9d1FozUqKnzwuowsLvP1cwIC0FelffNkCWImjS4lSKRldWODdzwWMSVuR6r1bKyB9sUpG3Hnyo6hnnb2kXwi8DS4gKW1F6vQirYDM79tkxB03o3xq/VGz4gIS/2sBLecSMstmuoCwtBWOWxDcICPuuBnlU3u/YwXULdA34YVntQJGeh+kZGbum/CKkXEUcG7QsQfUJpzxGH6cNT/etZQeDayljuEeGfVOoC/pKGB0Qn81w9vPLyJtm1uxqxTrKab6jkdoZWCdkq/jFQrHxyVidm7GLarYa2rmG/0xGc0B70ouYAkq0Ub39O3Imk+rpvtdmkjM/ipO4iet7khcM2e1Oe+/icMd6vcAjYN2t82NqEFlX73kKKL8683Ue/28RDm5PH6NNnUGYDipmfNqxBKO5W9S5gxWYTk6tB1y4lqvo4BpVXz7FjVeaKH2yyfoy99O0mfBVnq1ZyuVBCrUeOmhOnrik7+yBXw/pH/XwisJz/vE3gadu2Q8yxdDnQ5zrypp3Uhlu392PPsMvHaKbQ7082f4RTskR/cfP+B21LiaFFJpWyUdCHZKlhzw+BWHW8VWB8uyDAH89aoxaoZo6097aFWbvcSzafOZD2gwMiyzcyD33zjcK3buIGCFWxEMb87Dg8doy3c7aE1nLa1ur1RX6uvYRLWnt6m9MBS5ItE6bI4LfEhsCiMrEZS58wa5eNkLX/lMUEQxJjZA//ljAHP5j+tOnLrfcy/IavA/Yn5xeIJjoSbM1R+1+YBki6H1SOyH+iEDSoj4nPv8iKlEDfYbblaKiv4FoeF/NqqvoEMAAAAASUVORK5CYII=" InformativeScreenshot="5f26bed061cb2ee5390755b8e6efdd72.png" Selector="&lt;html app='chrome.exe' title='Sign in - Google Accounts'/&gt;" Url="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?client_id=448832788032-c81ecc9pvv5t0ebro5la7asks9kh9lf5.apps.googleusercontent.com&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive&amp;access_type=offline&amp;response_type=code&amp;service=lso&amp;o2v=1&amp;flowName=GeneralOAuthFlow" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

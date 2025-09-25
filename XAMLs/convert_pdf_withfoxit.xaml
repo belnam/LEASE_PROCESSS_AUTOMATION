@@ -1,0 +1,388 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="convert_pdf_withfoxit" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/python" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_attachment_output_path" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1253,827</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>convert_pdf_withfoxit_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Python.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Presentations.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="450,255" sap2010:WorkflowViewState.IdRef="Sequence_86">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="CommentOut_45">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1385,192" sap2010:WorkflowViewState.IdRef="Sequence_91">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="convert_pdf_withfoxit" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_90">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Start - Foxit PDF Editor" sap:VirtualizedContainerService.HintSize="1261,5406" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" ScopeGuid="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1227,5115" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="extractedText" />
+                      <Variable x:TypeArguments="s:String[]" Name="folderFiles" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Convert'" sap:VirtualizedContainerService.HintSize="1165,157" sap2010:WorkflowViewState.IdRef="NClick_58" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable CvTextArea="134, 65, 50, 13" CvTextArgument="Convert" CvType="Text" DesignTimeRectangle="121, 58, 77, 25" DesignTimeScaleFactor="1" ElementType="TabPage" FriendlyName="'Convert'" FullSelectorArgument="&lt;wnd cls='BCGPRibbonBar*' /&gt;&lt;ctrl name='Ribbon Tabs' role='page tab list' /&gt;&lt;ctrl name='Convert' role='page tab' /&gt;" FuzzySelectorArgument="&lt;wnd cls='BCGPRibbonBar*' /&gt;&lt;ctrl name='Ribbon Tabs' role='page tab list' /&gt;&lt;ctrl name='Convert' role='page tab' automationid='' check:text='Convert' /&gt;" Guid="4ce4376f-5e83-4967-8198-631d7a3cfb9c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFEAAAAdCAYAAADSFYAhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF+SURBVGhD7ZXLkcIwDEBT1faRTpxGQg979HDaIrIctgGOoQ2GEY4/Qv5xiHVwFh3eMLaMsJ9kM3x//YDQxvD7dwWhjeF+f4DQhkhkQCQyIBIZEIkMiEQGRCIDIpEBkcgAo8QLzOMII0HpW2Hd/4NH4noGlQjsVeKqJ7u3eSnH98AgkXSgOsNK5nWHEpfZ7bUvicvJd94JllLckl51sjZ08VYAzBW6+AZauTEemq4v5Z4v2TptxU2gfC4kKvp+miWG64Gbz8jfSocXiYc1hyzE0/xh7CSXc9tY9sQcWCLGccNJd+FhJ9DrFg9i/DjqvPBdF8t+m67N8joOeZ3jzinMRZK2eCwqHnvBfi1KTKESMa+jT4lYcQPtRjM/G0lZt9Q6sSqRSDdX3n76guS5CYeSaKh1xLt3K38T6xKjQlXnX5SL4wgSLUlsLywSLeSfNfCqdiqy8u9s5woSSfdmBy+IfCcxWt+dxA9GJDIgEhkQiQyIRAZEIgMikQGR2MwDnv6lCKF0X2IQAAAAAElFTkSuQmCC" InformativeScreenshot="d10aebd4592544b54c63b516a4b6e373.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='classFoxitPhantom' title='Start - Foxit PDF Editor' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="2" DisplayName="Click 'Recognize Text'" sap:VirtualizedContainerService.HintSize="1165,157" sap2010:WorkflowViewState.IdRef="NClick_59" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="876, 87, 64, 71" DesignTimeScaleFactor="1" FriendlyName="'Recognize Text'" FullSelectorArgument="&lt;wnd cls='BCGPRibbonBar*' /&gt;&lt;ctrl name='Convert' role='property page' /&gt;&lt;ctrl name='Convert' role='tool bar' /&gt;&lt;ctrl name='Recognize Text' role='grouping' /&gt;" FuzzySelectorArgument="&lt;wnd cls='BCGPRibbonBar*' /&gt;&lt;ctrl name='Convert' role='property page' /&gt;&lt;ctrl name='Convert' role='tool bar' /&gt;&lt;ctrl name='Recognize Text' role='grouping' automationid='' check:text='Recognize Text' /&gt;" Guid="7fa4a555-9bc2-42a4-80d6-6a2ee8a7616c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAABLCAYAAADJRSFnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPuSURBVHhe7ZpPTxNBFMD9Dv0oJNWrbmJqPKnRK3hfTnwAveKxBRP1BFE0JkJIpGKEg9wIAokYseLBf3gAlWJBgYY8+3Y705m3s2233U67zTv8sjvzZmdnfjsz7Gw5Uy6fAlODhRBYCIGFEFgIgYUQWAiBhRBYCMGKkFxuDNLpNAwMDERmeXnFWGensCIEZRSLf4yxeqAQx3GsSrEiBDtmym+EGCE2pfS8EDzalJIIIYgtKVaEZDKXjPmNoCJtSLEipFVQSBim8nHQ00LCSKyQtXubMHVhzmPt/qY5dn4ONh5uyfyJ9KzkycUXsL2yo12HJFLIxqMtmL62APvbB1D8fgDTVxfg3dSnQGzvawme33wNbyd9KShC1PFjddeTItKCRAp5duUV7GzuyfTO+9+eFFNMRRWy/aaPhEycnYWjv2WZPjo8gclzfmdpTKVvp4xxhFSmiSmmgiJmbizC0q1V+Fc6MZZJpBBcL3CK4PpR/KavIWps70tlDRnS1xAUsXR71RPz82NRqxdJpBBk/cEHeOzkPfDcFMO/NEIU8vTyS3lemP0MM9cXZVqQWCGdIvFCMpmMMb9VEi8k7g6wEAILIbAQAgshJF6I/5F53xiLCtaD9ZlicWBFyNjYeMs/Q1CwnvHxu8b7xIEVIUmChRBYCIGFEFgIgYUQWAiBhRBYCIGFEBoImQc3lYKUgps3lesShRw4KQeyBUOsRZoQotwwP1yRMgz5QLn+IZqQQLr/iD5CnBwURNwbsmI6qSNnC7KOYZpp5cn0U2JONqfct9qGLI5OERc/jtfaV8g6Mu7hzgfqbWZ0R1tDxE1kTJflN9SXUWu0Wp7KUTtdi/md02Py3tq0JW2QeSFx2UZRNkjzI8TrgGKYPG0pjJbTyuv5ebcqAWPqyNM6QjtdL6bUiemwNlbLmog0ZfDJScMROh6WH7sQHD1qh8PaUoc2FlU8N02NKFNGNFaPBadMvTao57Tzfr2NpolKRCHVxoqn6XXKNBz9hoh88xDW6/XXBj9mXFRlWTVdO8fRJq73aNhGMw2EdIkWhnpc9KQQ72lra4o9ekSI/t7Szbfh3pwyXYSFEFgIgYUQWAghViGBl6MqUd4Uu02HRkjwDbd52rm2fRIjZHT0jvG/ATBfLdcu9oRoewp88SKbQNzLOJXdtDLV1H3H8XEZRkZGNBmYxnx5jxiwJISk5YcazEc54mi6tkapdAiDg0OeDDximpZpFztC6I5TffrVXa7cEdcRguzu/gLXdb2jKd4uFoWE7E8iCuk0FqdM2Eej5qeMDbq0qOKUyWmLqvrhSb7PNPiY0wk6JCS5sBACCyGwEAILIbAQjVP4D93kWdBCWR/6AAAAAElFTkSuQmCC" InformativeScreenshot="5d23e728fb66f53fb878bde2da6c6e59.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='classFoxitPhantom' title='Start - Foxit PDF Editor' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V2" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBefore="2" DisplayName="Keyboard Shortcuts 'Multiple Files'" sap:VirtualizedContainerService.HintSize="1165,199" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="WindowMessages" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Shortcuts="[d(hk)][k(Down)][u(hk)][d(hk)][k(Down)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V3">
+                      <uix:NKeyboardShortcuts.Target>
+                        <uix:TargetAnchorable CvTextArea="34, 34, 72, 15" CvTextArgument="Multiple Files" CvType="Text" DesignTimeRectangle="5, 29, 141, 24" DesignTimeScaleFactor="1" FriendlyName="'Multiple Files'" FullSelectorArgument="&lt;ctrl name='Multiple Files' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Multiple Files' role='menu item' automationid='' check:text='Multiple Files' /&gt;" Guid="0b675e8b-fdea-425d-966b-dc13267b57b6" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJEAAAAcCAYAAABh9l0lAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALOSURBVHhe7ZjNbtswDMf3Dn6UAMkD+JKPa9e9hPMyabND9x5GgXa7N22yc9CHKHYpBhQBZ8qWy0iULEs5xAsPP6QhadoR/yalfvn4OIAgpCAiEpIREQnJiIiEZEREQjIiIiEZr4hGo1EQT08b9nrhMugUEWenYEye5yKkC+YkIkIBiZAuF6+IZrMZa6egiChcjJ97KLIMsuKe8R1gv8ohy3JY7W3fMZjHEbe/gTw1B0vz7IR89Wrcr2/O4XHSjXW8iHLVyeyF1kXqK4DYwvW9LiQ+9lmGg1NELy9bmM/niu12146s8XgMt7drmE6nSjS0W4V0Lpt6kYuiEhK+xdRXLqsOtQwsAi1WbOH6XhcSH/ssw8Epoqurr/D4+Etxff1NCQjF9Pb2B+7ufrDXxKEXGT+XULb2V1ip7kSLYBaE8+EnGTFqTDJxJY4cMoKsfBVqLOlc9Nk0RjxrD8mJv1XbMijKJnYgOEU0mUzg/f2vAv82R5XeA2niuhDyuchlQRYQFzu/gb2vIE5fV1xVLJW7+u7cvxg5qq5odUqdi1A/vyuPI6fquPyecAh0dqKHh59tJ8IRpzuRKap4yMK2wqGC8hTB6QuNq2HvddQxGqxC27lse0DOxm6LdBg4RYSja7FYKHa737DZPLd7ovX6eysi2o2Q/sd8uuDNCMNRozuFqyBeX2gcUo8SXkTcCKOYuTh7eM76JEq68UBwiqgLKiJti/t/kVEIbO1HbyX104LrWKZYZk7LR/IfFdYTx2Leh7P3y4lCGlpH8ooIT2CcHeFEhKCATJsfsxAoFPq2Gv5GZPUooCe34zgcUe24sApZnwZ1ns8337iXOX5Sxxn6uJz0N3V2v/PDKyKfGFwictnOB1fhhVhEREIynSIy0Ud5/Yk2eo3Ldj6IiE5N9MZaQwVG4WKF/5NkEQmCiEhIRkQkJCMiEpIREQnJiIiERA7wDzrkwlkSWIkjAAAAAElFTkSuQmCC" InformativeScreenshot="e647b7ec47793f14ba7acd10c963426c.png" ScopeSelectorArgument="&lt;wnd aaname='Recognize Text' app='foxitpdfeditor.exe' cls='Afx:*' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                      </uix:NKeyboardShortcuts.Target>
+                    </uix:NKeyboardShortcuts>
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts 'unchecked'" sap:VirtualizedContainerService.HintSize="1165,199" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" InteractionMode="WindowMessages" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Shortcuts="[d(hk)][k(Right)][u(hk)]" Version="V3">
+                      <uix:NKeyboardShortcuts.Target>
+                        <uix:TargetAnchorable CvElementArea="9, 400, 110, 24" CvTextArea="17, 406, 93, 15" CvTextArgument="Output Options..." CvType="Button" DesignTimeRectangle="9, 400, 110, 25" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='3000' title='Output O&amp;amp;ptions...' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='3000' title='Output O&amp;amp;ptions...' check:text='unchecked' /&gt;" Guid="4dde7400-109e-4f46-9661-654e608c9304" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHIAAAAdCAYAAAB2fzjyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHRSURBVGhD7ZbRkYUgDEXpiW6oZP9ohVasYr+thBUQCRAREVdlkpkzTwWSkBvxMU02hJGQgxgJOYhFQrKfX+JDQCMhPww0VMh5nokXQ0IOAgk5CCTkIJCQg9BPSCU0Y2yDywmf9yS9cpyk5oxrOSFjD9FHSFsguLFJS15bKKVFl6Ic+HlFjvfRQUhXEKGS57ZrhVbwGcp/CPmWHO/jupC7xTDF85tPC+HvzW846phQYUwZv+kReMaPn7NwJscsLuY7ycP6D3NCw6zzZDjSw15cc+Vr2ugjJJd6ysbgW5BsPLrHxpbNeZ+2SKW5e2OA6hxb4wIhsnWLT99Y9nhfG8pcpw13gT5CNr+RR2MOJVoaAtCUY2VcxHf9utpv9DHXhYy6GhBtsLCh4pih9c2GtORYGbdVyHXuJPlLjlYDPDIsJuH8e7AlG/2DxDYL1kaFOuMn4TDHUlwsRxgX5FS9LmDEdHFTv9g1Th8hDbZQhY83HBciSsx0sHse/kgI4To181XtB6zxFHMsx8Vy3AprxfN+YcFTAcB9lAsm/N41Tj8hu3Gc9D08FbcPJOQGCdkZErKFFwpJtEBCDkK1kMQ3gEZCfhhokZBk3zUSchAjIYcwrf8AsclAPkuiea8AAAAASUVORK5CYII=" InformativeScreenshot="a20d293df4be76de8aaad5027d7d3155.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Recognize Text' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                      </uix:NKeyboardShortcuts.Target>
+                    </uix:NKeyboardShortcuts>
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts '&amp;Cancel'" sap:VirtualizedContainerService.HintSize="1165,199" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" InteractionMode="WindowMessages" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Shortcuts="[d(hk)][k(right)][u(hk)]" Version="V3">
+                      <uix:NKeyboardShortcuts.Target>
+                        <uix:TargetAnchorable CvElementArea="750, 400, 75, 25" CvTextArea="768, 406, 37, 12" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="750, 400, 75, 25" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'&amp;Cancel'" FullSelectorArgument="&lt;wnd ctrlid='3002' title='&amp;amp;Cancel' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='3002' title='&amp;amp;Cancel' check:text='&amp;amp;Cancel' /&gt;" Guid="3361465c-a002-484e-a86c-24746d4e2e5e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEtSURBVGhD7ZWJDcMgDEXZiW1YhlVYIEMwSiZxIRw1KjkaN0hU39KTypWKF9tRhLgdkCcIyBNEI29ZFnACjw9567qCHSBPAOQJgDwBkCcA8gQMlufJakVKZbQl3933BI6M0mR9b+0e4+R5SzoIM66ds3z8KNPKSxnXiBvOrPK2rDPkemsZZ1g5G5fn84WtqWvaenaubQP15eQsT/Plf2eWd7m/8UvG30FAkemixCIjiWtlljNMUjiT9sws7yTzkpiSLVwevzAb7z2zybrMJn9WeWc9rxER90rl9V7UtPICObO6X9u4Vsp6u/wFeYdle6Gcf8A4eZFNDCun2gdZ49eGzJXMq+P38/ofjMDcZfufQJ4AyBMAeQIgTwDkCTiVB47h0chDfBeQJwjIux1EL/K+C8ddCPzcAAAAAElFTkSuQmCC" InformativeScreenshot="8c0aad3ae7e821380e1e009e520755e8.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Recognize Text' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                      </uix:NKeyboardShortcuts.Target>
+                    </uix:NKeyboardShortcuts>
+                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts 'Add &amp;files...'" sap:VirtualizedContainerService.HintSize="1165,199" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_4" InteractionMode="WindowMessages" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Shortcuts="[d(hk)][k(Enter)][u(hk)][d(hk)][k(Down)][u(hk)][d(hk)][k(Down)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V3">
+                      <uix:NKeyboardShortcuts.Target>
+                        <uix:TargetAnchorable CvElementArea="12, 26, 74, 25" CvTextArea="20, 32, 57, 12" CvTextArgument="Add files..." CvType="Button" DesignTimeRectangle="12, 26, 75, 25" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Add &amp;files...'" FullSelectorArgument="&lt;wnd cls='#32770' title='Dialog' /&gt;&lt;wnd ctrlid='3003' title='Add &amp;amp;files...' /&gt;" FuzzySelectorArgument="&lt;wnd cls='#32770' title='Dialog' /&gt;&lt;wnd ctrlid='3003' title='Add &amp;amp;files...' check:text='Add &amp;amp;files...' /&gt;" Guid="28a8422e-96ad-4b85-b675-1ddf7e6dbb54" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF/SURBVGhD7ZaBbcQgDADZiW1YhlVYIEMwSiZxMYQEHCAi5l+takunqjgl9hXzr0DidYg8Rog8RlTytm0THijjJm/fd6GDyGMg8hiIPAYij4HIY7BUnjMKlHHN3IUDozRYP5lzBpQK+2sL3lvQ53Oj/T7LOnnYkDZg9FMjb+ThugLj6HrO/XF53mrQ1p8/W88k3sqb/ZvPs0ieB5tPXDyBYbTKfByzMHIBbW3d7CgXQTkpn57Bf0wpjMgr9lPKgIt7YH3XHu0TPM8aeZWwQmT8PTWfC8aTqarGe7kSIqgrjzwX7skoG+/Lx7t4niXy6KhGCbnY20ksGhzlzrXWekdYdeoOsI5jfXydzLNAHhZPCo4cI/N1eXlU76ST/ZvGFkeiEoCkOyYVic19c2zHJ+yaktEe5bv6sOXhd7tWsdXo5u9osTHyoTDKndCGBs3S0cUaindcHyK9Pei7+vBP3j9G5DEQeQxEHgORx0DkMXiUJ4wpo5InMRcijxEi73UA/ABHB51AasT+AwAAAABJRU5ErkJggg==" InformativeScreenshot="954c1246ce28fdfe00d7918a1bc2e79e.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Recognize Text' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                      </uix:NKeyboardShortcuts.Target>
+                    </uix:NKeyboardShortcuts>
+                    <uix:NClick ActivateBefore="True" ClickType="Double" DelayBefore="3" DisplayName="Click '‎RENTALS-PROCESS-AUTOMA…'" sap:VirtualizedContainerService.HintSize="1165,157" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable CvTextArea="300, 39, 186, 14" CvTextArgument="RENTALS-PROCESS-AUTOMATION" CvType="Text" DesignTimeRectangle="297, 37, 207, 20" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'‎RENTALS-PROCESS-AUTOMA…'" FullSelectorArgument="&lt;wnd ctrlid='1001' title='Address: C:\Users\Administrator\Documents\RENTALS-PROCESS-AUTOMA*' /&gt;&lt;ctrl name='Address: C:\Users\Administrator\Documents\RENTALS-PROCESS-AUTOMA*' role='tool bar' /&gt;&lt;ctrl name='‎RENTALS-PROCESS-AUTOMATION' role='split button' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1001' title='Address: C:\Users\Administrator\Documents\RENTALS-PROCESS-AUTOMA*' /&gt;&lt;ctrl name='Address: C:\Users\Administrator\Documents\RENTALS-PROCESS-AUTOMA*' role='tool bar' /&gt;&lt;ctrl name='‎RENTALS-PROCESS-AUTOMATION' role='split button' automationid='' check:text='‎RENTALS-PROCESS-AUTOMATION' /&gt;" Guid="78465f96-f311-4aaa-951e-c0732f982bc1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANMAAAAYCAYAAABgKMiuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQkSURBVHhe7ZwxTiQxEEXnBOTcAImQjIyADIkcEo5CSMIlgCMQQALiCITEpMRISEi9eiM++tS6PG62N6snWbjLZftXtat7ZgJWU1EUi1DFVBQLsXp5eZmqVav2763eTEWxEFVMRbEQVUxFsRBVTEWxEGkxvb29Tdvb29Nqtfput7e33THZz87O1n4C+87OzvT8/Lwe83lql5eXX97T2qe3RoS9tQ7749si6t7a2vpeL47RFK/wfWiuWby/v08HBwffPvSx9dbP9I/G5Yzmzm2b7kkvbsUV9xT4ep5F1NnTwB57e3s/4v+NJo/5f9AtJt8Y8bqhmSjZd3d31/6i5Z+twfXh4eG6jfpjZ1zXDw8P634krsEN8MPuYx6vrv1QqGj8JjKGj8cuPXP1Z/Ye+IzmbtS2KW7N2d/f/zEPGCOHsZjot3RCpsuLaVTTyDlckuFi8utMlOzX19fT8fHxOki3u3+2BgnxJjJ/kqWC2ERcw697Y7pZfmOAMXzwzXxEXF9k+ufEJebkbsQ2ErfmnJ6e/tgTmHd0dPTXPplOyHSpmOZoGjmHPZh3f38/fX5+fln6zHoz6eZmotzOK1aJavm3bKxN8NhoI4nAztMv3pQWcQ2/jmMeLzbG8HGi3paPiOsL7C39mT1jbu5GbPxtxeR7ac7j4+OPt4d8sPuaPZ2Q6dLa2Ec10d90Dnvc3d1N5+fn083NzVBBDX9n8s+fcYw+Nheb9UXLRl/J9eRAy1/gy8FHS3xiOXENkuwPiCxe1+VoX/bMfERcXzmDTH9mb+H70zblbsTmazrShSafQ86kU3NfX1/TNaNOyHR5Mc3RlPVHoIAopNGCGnoz0ehji2NOtBMYCW75t2wcbn8S09ehzvZ0GNN3FvX94NKyA+3r0+hrLF4LPwyZj/D1MxiTfsft6kf9c3M3YuNvKyaP2+fQdNBVWHHNnk7IdP32zQS9c7iJj4+P6eLiYl1QT09PX9Y2wx/zPAmZqGjX0+Lq6uov/+jLtR/0eOCzPSPx5ji9NeKYx6s4WoecOczNfMS/6t8UVy93ftCEaxdR40jcPkf7+HcVH6ff0wnuL7D95juT1tCc1jns8V/eTPE6jomWnT5PUprboy/JIWACF564bE/98gXyVxFEsjUgjrX0xZvOte+FD4fDbzTze7/mZfrnxLUpd0Ahug/XsThbGjfFHecoB63xEZ0tDdj8+9hcTUC/dQ57LPqdKQpCLIHzORjx/nRhrDUHGNtUTNxYJcPBxpgS1trT7fGAOJk+aI2xvt98HRQ1HQCH+cQqH82fq39OXJtyBzq0Ws/jEll+enHHOax5cnKytoOPj+hsacDmxQRzNAn2mVNMxLLIr3lFUcyjiqkoFqKKqSgWooqpKBaiiqkoFqKKqSgWooqpKBai/qFKtWqLtJfpD0/SUdB0n+leAAAAAElFTkSuQmCC" InformativeScreenshot="61d475762934fc920e0a0809804b758a.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Select Folder' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target CvElementArea="112, 36, 597, 23" CvType="InputBox" DesignTimeRectangle="504, 37, 110, 20" FriendlyName="'‎Downloaded_Scans'" FullSelectorArgument="&lt;wnd ctrlid='1001' title='Address: C:\Users\Administrator\Documents\RENTALS-PROCESS-AUTOMA*' /&gt;&lt;ctrl name='Address: C:\Users\Administrator\Documents\RENTALS-PROCESS-AUTOMA*' role='tool bar' /&gt;&lt;ctrl name='‎Downloaded_Scans' role='menu item' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1001' title='Address: C:\Users\Administrator\Documents\RENTALS-PROCESS-AUTOMA*' /&gt;&lt;ctrl name='Address: C:\Users\Administrator\Documents\RENTALS-PROCESS-AUTOMA*' role='tool bar' /&gt;&lt;ctrl name='‎Downloaded_Scans' role='menu item' automationid='' check:text='‎Downloaded_Scans' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHIAAAAYCAYAAAAmsqlBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJrSURBVGhD7ZovrgIxEIf3BHgEnhMgcAg0HoXC4vFITsEV0HAGJHcAi92Xb8NvM5m03X37Qshr+iXNtjM7fzpDC4KqLmRBaWQmVPf7vS7j/49yIjOhNDITSiMzoTQyE6KNfDwe9Xg8rquqasfxeHxrPwuxp9Npfbvd3pK/McRfH5vz+dzWhlph8y2SjbQbYU2ym82mWX+SIYVPMcRflw1y9Lyn9eVyaebfoHcjwSf/KYYUPsUQf102nMbFYlG/Xq+35Lv8qpEkTfJsAtCNRqP2epGcU6u598Nzt9u18sPh0Nrr6g7ZhOIAsSS3t4W12e/3UX/2SkzZeLDBNvR1ozopL1sXyZRrqg4xPyEGN1IbkXPem0wmzROZEmU+n8/b5HgyZG/fU1Ft7FQcS8qGeDRIOrsv3rH5hGxi2ELLTjLsY4RyDdWBueRd/LqRq9WqkTHQ854gKMHR8R7vc/pOp1Ozfj6frb33b9d2zojFAZ76xKrwDMUH70+nTgN/KZsu5FN79/mKUK4+TijX1IdCDP6OtHOhAqvh1+u1Xq/XTQN5slaxUhuw81Qcq1NM2aQa6f1ByqYPFFsfiJj/UK4+Tiguvmk+e47Ru5Gs7dXj1zZRILi/UrfbbbsO+dfaz2NxkHGNURjkunK9DTHtCUCnPETKJgS/UKUjvq5TO7ekco3VwYI/79OSbCQb81eBhTXykJ65/S7z69QGvI5nKI6Khnw2m9XL5bLVUTjlnvqxw+AkQcrG4+sjH+B1+I3lmqqDzQd/6GJEG1n4X5RGduBPV5/T8Q1KIzOhNDITSiMzoTQyE0ojM6H8+SqLca9/AP2RTkCQYcCfAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image, CV" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="3" DisplayName="Click 'Downloaded_Scans'" sap:VirtualizedContainerService.HintSize="1165,157" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable CvTextArea="295, 342, 104, 14" CvTextArgument="Downloaded_Scans" CvType="Text" DesignTimeRectangle="294, 338, 236, 22" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Downloaded_Scans'" FullSelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd ctrlid='1121' title='ShellView' /&gt;&lt;wnd aaname='Items View' cls='DirectUIHWND' /&gt;&lt;ctrl name='Items View' role='list' /&gt;&lt;ctrl automationid='10' /&gt;&lt;ctrl automationid='System.ItemNameDisplay' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd ctrlid='1121' title='ShellView' /&gt;&lt;wnd aaname='Items View' cls='DirectUIHWND' /&gt;&lt;ctrl name='Items View' role='list' /&gt;&lt;ctrl automationid='10' /&gt;&lt;ctrl automationid='System.ItemNameDisplay' role='editable text' check:text='Downloaded_Scans' /&gt;" Guid="8038d949-881d-4e94-b10b-1ff91dd24680" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPAAAAAaCAYAAACJitF2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJOSURBVHhe7ZiLbSQhDIanLgqiHqqZZrYYgnkaA765veQ2lv5PGml4GDvI/9ibKwIAzAIBA2AYCBgAw0DAABgGAgbAMBAwAIaBgAEwDAQMgGE2Ar6jv654sceFV137aci3i9/n7p3zHtjcnt2PTxYAfIaDgHkCV0H7/5GmBgT8CtFx0aZxgILBh3gg4IRM2h/DgICp+roQvy1EAP6BZwJO6RrcFXsRzoIeLXabvz3bI88hm7xY58NoQ0eLvrHZ+CHIV5ufugNm40JQzpur6NFmgWI8/awo99Ti4vfS5kas2j3szwFA8oaASwL3pMrJX/dTdRpZG51zPSlfob0Xe75viIn7VvxMnG3I5zWtMXuKLw80mxNDYD2+OrcXdmONdXsP/B4BUPgLAde5LKS5ne6Vl9Zqe3n7tP9uY2a/nC+T+oGfMsgCKg+zmdpbeV7bXx86TLP5E/XM/reLeDu7WBc/a6z6xwCAd34DbxJ1CKsJNZ3RhZv2kk0XiZK4/F3zM62Jj4sq4Pm8jGbzgFyx24fgdP4u1sXP6rd0A+yjBYDggYBpzJNIjEXi5lY5JSlvnb1v7SqhJa58P/ihitZEl+f3NnM7XNbWqqbZbEhdxVgjQbYz+TtDjZX7keNCvk85CUDlIGDWZu6SOSfiYX1K0s1YTVyxdvRTxJLnU4X3vaolWLuq/xMrPU21ms2CuJ/+hSHmtbJ0ilW5h6nl3lR1ACobAQMArAABHxGVFtUQ/EIgYAAMAwEDYBgIGADDQMAAGAYCBsAwEDAAhoGAATBLjF/qmkWAY6vV6wAAAABJRU5ErkJggg==" InformativeScreenshot="2cb797b1a3d67b09e97b172c37eb9269.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Select Folder' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <Assign sap:VirtualizedContainerService.HintSize="1165,82" sap2010:WorkflowViewState.IdRef="Assign_11">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:String[]">[folderFiles]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_attachment_output_path)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1165,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[folderFiles.Count]" />
+                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="1165,3002" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+                      <ui:IfElseIf.ConditionBlocks>
+                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                          <ui:IfElseIfBlock BlockType="If" Condition="[folderFiles.Length = 0]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,465" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="2" DisplayName="Click 'Cancel'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_51" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable CvElementArea="847, 494, 88, 26" CvTextArea="872, 500, 37, 12" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="847, 494, 88, 26" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Cancel'" FullSelectorArgument="&lt;wnd ctrlid='2' title='Cancel' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='2' title='Cancel' check:text='Cancel' /&gt;" Guid="5d2bb10c-3b03-4afd-9757-a8ae5a843495" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFwAAAAeCAYAAAChf3k/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE2SURBVGhD7dbrDcIgFIZhdmIblmEVFugQjNINusGRaz1EtCSWkyZ8P97E3jR5wKPqOA5CcgFcOIAL14Bv24YmxI0/wPd9RzcGcOEALhzAhQO4cAAX7kHgnqxWpFRJW/Ld+2bkyChN1veu3dszwL0lHZCNa89Zfjy1pcDzzm6wxVsJPO1uQ653reQMGzXGlfMFyZrzmraePdeOqHNBy7cpn6+fuxr48LzmMPF1QKsL4CJ8BczY7QLUZxhseCbfsxr4xQ7PmHVXcnCOxI6/vWezu0tpwVYCv5rhDV6891/w3uIuBR4qO7j7LyVeqyMngQ2A/xwpA6NmYs8AjyVM9lU/5zr78dOGzMgOP4/f79f/0QytN1LWCuDCAVw4gAsHcOEALhzAhbsER/fHjRtwND+ACwdw0Q56AQ92RgtlHUC3AAAAAElFTkSuQmCC" InformativeScreenshot="e97c2af9d8d8777c3dfc410c7abe9248.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Select Folder' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="2" DisplayName="Click '&amp;Cancel'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_52" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable CvElementArea="750, 400, 75, 25" CvTextArea="768, 406, 37, 12" CvTextArgument="Cancel" CvType="Button" DesignTimeRectangle="750, 400, 75, 25" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'&amp;Cancel'" FullSelectorArgument="&lt;wnd ctrlid='3002' title='&amp;amp;Cancel' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='3002' title='&amp;amp;Cancel' check:text='&amp;amp;Cancel' /&gt;" Guid="7cad0a53-a6b1-4a4e-b12a-db88ade7ae2c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEtSURBVGhD7ZWJDcMgDEXZiW1YhlVYIEMwSiZxIRw1KjkaN0hU39KTypWKF9tRhLgdkCcIyBNEI29ZFnACjw9567qCHSBPAOQJgDwBkCcA8gQMlufJakVKZbQl3933BI6M0mR9b+0e4+R5SzoIM66ds3z8KNPKSxnXiBvOrPK2rDPkemsZZ1g5G5fn84WtqWvaenaubQP15eQsT/Plf2eWd7m/8UvG30FAkemixCIjiWtlljNMUjiT9sws7yTzkpiSLVwevzAb7z2zybrMJn9WeWc9rxER90rl9V7UtPICObO6X9u4Vsp6u/wFeYdle6Gcf8A4eZFNDCun2gdZ49eGzJXMq+P38/ofjMDcZfufQJ4AyBMAeQIgTwDkCTiVB47h0chDfBeQJwjIux1EL/K+C8ddCPzcAAAAAElFTkSuQmCC" InformativeScreenshot="8c0aad3ae7e821380e1e009e520755e8.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Recognize Text' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                          <ui:IfElseIfBlock BlockType="Else">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1114,2305" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="2" DisplayName="Click 'unchecked'" sap:VirtualizedContainerService.HintSize="1052,157" sap2010:WorkflowViewState.IdRef="NClick_48" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable CvElementArea="728, 495, 107, 26" CvTextArea="747, 500, 69, 12" CvTextArgument="Select Folder" CvType="Button" DesignTimeRectangle="728, 494, 107, 26" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='Select Folder' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='Select Folder' check:text='unchecked' /&gt;" Guid="1a818e66-32f4-46b2-9717-64327771bfc0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAAeCAYAAAAiu0AEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG/SURBVGhD7ZfNecMgDEDZiW2YpDdWYRVP0bM38AbU/LkSFoQ4KbG+6vAOgAxCD/gStW2bF3gi8hgj8hiD5Kmvb+HmIF+oQQQL9wL5Qo0csK6rcDNEHmNEHmNEHmNEHmPmy3PGK6Uyxjsq5sB5o7S3CzX2CmHekkNC24WIg/Ry+as8+8yVt1ivobC9bR0YP/FKUd5d7P8uL9w6bf1CjZGIvB5z5cVNNp6oeCvr57QqChkTWLzVpV9549I6pa2My3GFTrHRGmGuMtbORVs7kGf63hgN+l5jsrzAb6GbhdlvaBIM+1sxab7zgajiT2OluDCX1H/kFSVQ6+O4xQYhj/JM35AH9yIfkJfJpzMWoDrtkXhbQCFaMbGfOslVEUfGiLmcgWJBLuj5H8izm881PidvJ57YUQGtmJFvR8eIua7Jezafa8yV5/Zfl0fy8LkLG3v09LVirj6b1FhaAz+bRcQ5l/az+Ww+15grL28MPyd5LBaqHqs2TMac5y1FDbcGxxU6hURrwJjqG/B/tf+DZYfayxuYLE94JyKPMSKPMSKPMSKPMSKPMcPyhPuCfKEGESzcC+QLNgReiDzGiDy2bP4HkMh/nzmBdkcAAAAASUVORK5CYII=" InformativeScreenshot="941e0500acfcaf730e9b0ce7e03a6679.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Select Folder' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="2" DisplayName="Click '&amp;OK'" sap:VirtualizedContainerService.HintSize="1052,157" sap2010:WorkflowViewState.IdRef="NClick_49" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable CvElementArea="669, 400, 75, 25" CvTextArea="697, 406, 18, 12" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="669, 400, 75, 25" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'&amp;OK'" FullSelectorArgument="&lt;wnd ctrlid='3001' title='&amp;amp;OK' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='3001' title='&amp;amp;OK' check:text='&amp;amp;OK' /&gt;" Guid="a7d4725f-4977-4427-a3f6-9a6e1ccf8456" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAdCAYAAADrcjF6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEESURBVGhD7dbhDYMgEIZhdmIblmGVW8AhGIVJriKlgmiNXoJn8l3y/tDy68lVNYy5PcATDPAE0+BN04ROqqfDizGig4AnCHiCgCcIeIKAJ0gnHjk2xvyyPlS/Eztj2YdyHdjb+Zyj6syY9OEtcD3OCtjikdvijksZXoZytLkfPFvjmJbrFS94+8jGlXThNUh1CbVs2xfPzxtqPYfu7Lj04e2C1BuZ8PKzsNvQwb138yidLfeeSRfexWdefrnsYY9JGd5cB5L/pkdv2+Wl8dCzTx9eavOd125ii5dKnysJcD0zJp14Lwl4goAnCHiCgCcIeIJO8dD/6mnwMNcGeIIB3u1h/gBQ7nZdQTjALgAAAABJRU5ErkJggg==" InformativeScreenshot="56279d060349b7e1af5f7215c51659cc.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Recognize Text' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="2" DisplayName="Click 'unchecked'" sap:VirtualizedContainerService.HintSize="1052,157" sap2010:WorkflowViewState.IdRef="NClick_50" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable CvElementArea="324, 433, 75, 23" CvTextArea="352, 438, 18, 12" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="324, 433, 75, 23" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='3021' title='OK' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='3021' title='OK' check:text='unchecked' /&gt;" Guid="39e91edc-20fa-444d-95a0-70f8adbf8d86" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAbCAYAAAA9K9JnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEJSURBVGhD7dbLDYMwEEVR9+RuXEl2bsWtuIqs6YAOJhjH4A+IzwhnIr2R7gLi1dEEUIS5PcBjzII3jiM6WZoCT73e6CDgMTrEG4YBVQGPEfAYAY+RXDxnSCm1pK3PfndklCbr07Unq6dzxmVnnk8m3gzX4qyAJZ4zNW6fBOJFKOOq+96SVobcfL3ieau7b1xKHl6BlBdQ07Z98ey0odqSb872SSbeJki+kQEvPgubDe2YTLyzm+fC2XSvf/LwLj7z4stlC/v5BOJNNSDxb7r3tp1fGj949snEC1XfeeUmlnih8LkSANczzycX7w8CHiPgMQIeo9N4aD/gMdrFQ+dKs+Bhrg/wbg/RB5+gpp3d/OEcAAAAAElFTkSuQmCC" InformativeScreenshot="4b34f96d6e6b3f7f0326c4668450768e.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Recognize Text' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="True" DisplayName="While" sap:VirtualizedContainerService.HintSize="1052,1603" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_7">
+                                  <ui:InterruptibleWhile.Body>
+                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1018,1467" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="x:String" Name="modalElement" />
+                                      </Sequence.Variables>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NCheckState DisplayName="Check App State 'OCR multiple'" sap:VirtualizedContainerService.HintSize="976,1379" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Timeout="3" Version="V1">
+                                        <uix:NCheckState.IfExists>
+                                          <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="472,1162" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <uix:NGetAttribute Attribute="aaname" DelayBefore="3" DisplayName="Get Attribute 'OCR multiple'" sap:VirtualizedContainerService.HintSize="410,207" sap2010:WorkflowViewState.IdRef="NGetAttribute_2" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                                              <uix:NGetAttribute.Result>
+                                                <OutArgument x:TypeArguments="x:String">[modalElement]</OutArgument>
+                                              </uix:NGetAttribute.Result>
+                                              <uix:NGetAttribute.Target>
+                                                <uix:TargetAnchorable CvTextArea="69, 57, 164, 13" CvTextArgument="OCR multiple files finished!" CvType="Text" DesignTimeRectangle="70, 54, 163, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'OCR multiple'" FullSelectorArgument="&lt;wnd ctrlid='65535' title='OCR multiple files finished!' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='65535' title='OCR multiple files finished!' check:text='OCR multiple files finished!' /&gt;" Guid="e71a9ddb-90a0-4110-ab6e-681b45f9c5b4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKcAAAAXCAYAAABu3F+ZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMBSURBVGhD7ZiNccMwCIU7SwbyNl7Gu2SVrOIKkCzAICmJ0+iufHfuxRXi5+nZ6fVnD4JJCXMG0xLmDKYlzBlMS5gzmJYwZzAtYc5gWgxzPvZtue23G7uWLf3W5rEtTuxzea7nvq+3Nf10uK+pp2Xfhhrq5GpSdVgW0KrUfCenh1erw5AWkHtUrwEeW+qx+gF9tEo1pDlhA5hIBZEBdWMgrmG4NChtJ6Fqqiycyv051OHDAbxc+3UjWaIT15vTr3UFXzUnmWdxquNmluy+9oymzZkAg/zZ23Mec9qafsac3vm9z+fNqXuv5sS3Zqs4iJnXu7HAs+bMw9/z2/t4g0PdfC8O0zhcYcC6jg/WkaP0xPeXz7wWn0/X4nFqxgOav8RQnFWz4OeU/fM9hV6tYixeQ9eu93a9Xg7An+G0tj1jzu5bjQTAgkNvQBaPUHP2QQJZ4CNvGaaaBEU7EsC6EscxJyLWAL5eaql4sV4+U59VSFjjRpZI0XXNgZz4IuB9wSNk49fK2rI88puPxbr1ejlauui1vPfb5ixPyit/cJ8aFl8FXPzMW+bU/bF5eawxOwithS0MmbOVc+hbimibU+XwtHTrdXJ0Zyi9ZER9uG2Z00oggAFyc91YgB8uNSrNofm2Oc/zVNOxdchzPHD10sIWhs3Zyol60+9aEl5iTsCsN2DOvIdf2A+sKePK+nDbMicWb4tcC7RjCYqpw4EALXHPw/+tOZXwon8WawndYNicQzlhj6/hZeY84PU6OVozwJrOPzAzM2cCihW3M9CY+vBy7OltmIrWYZSQVpMHz5qT8td1un/dnHIWnNk8PIrVGnkMmbOV89ATMDRlXGJOt95IDk8XvZbPipnT+maV5kTyRjiscrEkEiP2KMAHq2ATZr7z8G1zJsoDglfau3ED8sMBSCCIpRC+nj/jw1Py6b12rnOsZMycgJNTzJguLSjjEnO69Xo5AGcGQJ8V/FeG7R00539EGyWYgTAnEuackTAnEuackTBnMC1hzmBawpzBpOz7LxoosZgyX66cAAAAAElFTkSuQmCC" InformativeScreenshot="1f1911b9afeaedc7b415fee3919f1bfb.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Foxit PDF Editor' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                                              </uix:NGetAttribute.Target>
+                                            </uix:NGetAttribute>
+                                            <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="410,90" sap2010:WorkflowViewState.IdRef="Delay_6" />
+                                            <If Condition="[modalElement is Nothing]" sap:VirtualizedContainerService.HintSize="410,670" sap2010:WorkflowViewState.IdRef="If_4">
+                                              <If.Then>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="376,178" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Delay_7" />
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="376,310" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'ok finish conversion'" sap:VirtualizedContainerService.HintSize="334,157" sap2010:WorkflowViewState.IdRef="NClick_35" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bf5215f4-acb0-41a0-b297-7ee3cf11a223" Version="V1">
+                                                    <uix:NClick.Target>
+                                                      <uix:TargetAnchorable CvElementArea="547, 117, 81, 30" CvTextArea="577, 125, 21, 13" CvTextArgument="OK" CvType="Button" DesignTimeRectangle="548, 118, 80, 28" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'unchecked'" FullSelectorArgument="&lt;wnd ctrlid='1' title='OK' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='OK' check:text='unchecked' /&gt;" Guid="f53b1b3a-0c5e-487f-9a40-02da4cb552e5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAAgCAYAAACM2F8WAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKOSURBVGhD7ZnNaxNBGIf9qwpKRbH04EnBj5M9CaWePHnyUjyIJ28eipcaWm0r2iatbQNpTSOpRYmaRixGEHJoqSJScqsor/ub79ndbGPNx6SdFx4mmdlJ4Nnf7C47J8hXS8sLbXFFhH6v/KTsjSLNDC5Tqi/jiQFu4Gh7/ZuwpssSWhmv0tS5pdgf8USZGliiwu2SsMdLCd0t/aDpgWgq3z34RJP9C74NWvjYuFe2/CCA1dmasGgIXbz+yjqwMv6Ftc3+2VFv4QIyn1/IUfrqKhXvvBeu0jR7MScsGkInT79gBzw9n2UxDkvlk483YZlY8nJMlhIqByBv7vKKkuqJ51kg11z+siJCZcxN+x4buIFMrGbZJysiFJQffra+e6JAZlMJ9TKbowcSmqdN/fTBq1alTOi4whrRXiqv+4aqtBccavV1ALcTKqTQmn0jzKTqQWedNod0ny20RDgHtVE93ikcTihPZqOEMalGUrXQ5Hntxt2EsnTaKbRBCvW4FMpEhxLdSdxN6OhO7LVSw5MolzUTWrNT2w3cTeghhFIgNDnV7cfdhLIlv0OFuDFG/JJnJyJxXntxN6GHvinJtHZn6bubUNDgWfLgxyZ+Mrpxc3I4oRIhx6yY9NlCAX8W7XRS3U5oD9IDCe0t/imhnoNpOqFg4Vqecjc3rD6PBu+L397/mJzQiZPzbMCU+fLWGzXBw8EWCPxIqbJflhKavrJKj4yJkInJeDuN6ypa/MBxbuX9ZXm4SNmRonKFfXpZSujW9Fd6clZve3iZ8a3cuMRntBOn5un13bKwaAhFYSv58ZlFJdWTDGTOXVqh3/t/hMGQUNSHsS21pexpDBwhmfv1X8Icr4hQX/9XXmhLi+gv2sohRKe9QpUAAAAASUVORK5CYII=" InformativeScreenshot="e1b10915e151260ac0f208304e03eb21.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Foxit PDF Editor' /&gt;" SearchSteps="Selector, FuzzySelector, Image, CV" Version="V2" Visibility="Interactive" />
+                                                    </uix:NClick.Target>
+                                                  </uix:NClick>
+                                                  <ui:Break sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Break_3" />
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </uix:NCheckState.IfExists>
+                                        <uix:NCheckState.IfNotExists>
+                                          <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </Sequence>
+                                        </uix:NCheckState.IfNotExists>
+                                        <uix:NCheckState.Target>
+                                          <uix:TargetAnchorable CvTextArea="69, 57, 164, 13" CvTextArgument="OCR multiple files finished!" CvType="Text" DesignTimeRectangle="70, 54, 163, 19" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'OCR multiple'" FullSelectorArgument="&lt;wnd ctrlid='65535' title='OCR multiple files finished!' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='65535' title='OCR multiple files finished!' check:text='OCR multiple files finished!' /&gt;" Guid="bffd4dff-72e5-48c9-bcb7-426cf6f594e3" InformativeScreenshot="1f1911b9afeaedc7b415fee3919f1bfb.png" ScopeSelectorArgument="&lt;wnd app='foxitpdfeditor.exe' cls='#32770' title='Foxit PDF Editor' /&gt;" SearchSteps="Selector, FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                                        </uix:NCheckState.Target>
+                                      </uix:NCheckState>
+                                    </Sequence>
+                                  </ui:InterruptibleWhile.Body>
+                                </ui:InterruptibleWhile>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                        </sc:BindingList>
+                      </ui:IfElseIf.ConditionBlocks>
+                    </ui:IfElseIf>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-8, -8, 1936, 1056" FilePath="C:\Program Files (x86)\Foxit Software\Foxit PDF Editor\foxitpdfeditor.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASrSURBVFhHtVdrbxRVGOYnaEwU8QKFBlFRUQEpWMrVmGj0kxqxTdhSutu9ZLu02713u7U0RBqWhOCHpkHk0mDbQMIH65e2NppsSQwQYePS9AMxBUFMbePGpqSb13nembM7Mz3TbrE8yZMzc+bseZ/z3mZ2mbPUmVZIj4PuUjct04B77dIIsbhuTR1T3C8FzQJA7bYATMJww1sNPDpWO5ZMiETAOEZtSgUm6lYrAt5soMR7CWra3MQ/XgohMg8ovItRmy48cJQ4KFoepZa9LUwIgQCIE2vyaxVxB184SNXPVpPtGRvtf3o/jwdWHKDaF2vzwi0EgAURYhI/cq91qwL2qIzviXNoIE6IgRHPyx7q+bKHMj9nKDuZpZnpGcr+naX0cJpO+U6RbbmNHKsc5Cp1WQkA/8RoeICTNW1qMojAdWxnjNzr3Hy64e5hWggQE9oaotqVtQVXW0EvQJyyeVdzQYDC2I4YHfv8GM38O6OZmIur31+l5BdJuvTVJXo4/ZDnfG/4cKiMZkoOvQAhwveajxJ7E2y8eWczHf30KG9YDE7YTtC+J/ZR6rsU3Rm9w/mBfREO5ISZstioCbldScjdLRSpiND0P9Pa9nNxY+AGdce6qdPdSf1f9/Ncx2cdVPlkJV3rv0at77fyfjI7oFQAvIBEi5RHaKRvhDc1497YPWr/qJ3zpua5Gs4PjPaVdrqcvMxVAva09vAzmR1QKgCEaiSSDLd/vU2BzYF8rgS2BKiuRM0fFvK8ImSVncU1bmyUlrKgpQBsdLrxtGaygNnZWYpWRCm+K25I1OiOKOcOcuBc+By1fdDGpTifcdBSANyZ6ktpZgsYPDNIkXcjBuMgvJGsTFIul6MLiQs0OjLKPUO2t56WAtDlsIkZXZ4uLks2rCSpGINlQRo6M8RrcrM5mvprirujbG89Fy3gZM1JLk0YRadEnvg3+el89Ly2QsXU/SneAwkt21/QOgQraujKxSvadgX0tfdxicZ3KzmgdEmrEs38lKHwtjB51nk4GWU2wHmTEH3djAe/PyD/Rj8LgCeOfHyE0j+maeKPCZrOFsScDZ5VQ6WIRHJaecJSAH4AETLcHLzJp4P7Q9tCVPVUFQXeCdDk/Ul+PnF3gu/ZS0qOYLRqRpYCQAjodHbypjLcSt2i6z9cp/HfxrUZFR2fdKh5olUI2jpeZjIvzCsArF5eza/eYoASPPzhYYpsn1um/MUl6QkLCgBRz/haGvtlTDNlBJpTqjfFhu0ldnKtdXGF6AXEKmLSMBQlAERrRUjwcunydnHZoeMdrzpOwS1Bbk4i5vWv15PrJZfxu0Ih5sxhKFoACBd613s5wfCRgjjz+0A0JI3wVqAsQN5XvYZ5fOyYw7AoASBOgLrGeGjDIQqXh9WTmk4L4p3hf1stWdzLqqFoAXr0tvWyAD2Gvh3iOOsBT+Cllf/CUkTWr683hGFRAszXYhRicDoAroZR8VWlJzym74yP5IGBbwbyc/rn5nWeVzxqQ0JFiBApo74nPJIHZHPiWowgjOC0IFwfKgtxWIJbg3kv/G8BAsgLq3XONcbkbdig/g3Es6IFLBVhWBgHIeCx/T1fmM70f9e1KPWoG47FAAAAAElFTkSuQmCC" InformativeScreenshot="08850f5913e8187ee8b1c07f887992c0.png" IsExactTitleEnabled="True" Selector="&lt;wnd app='foxitpdfeditor.exe' cls='classFoxitPhantom' title='Start - Foxit PDF Editor' /&gt;" Title="Foxit PDF Editor" />
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="CommentOut_46">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,282" sap2010:WorkflowViewState.IdRef="Sequence_93">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="convert with python" sap:VirtualizedContainerService.HintSize="450,171" sap2010:WorkflowViewState.IdRef="Sequence_92">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <p:RunScript Code="{x:Null}" DisplayName="Run Python Script" sap:VirtualizedContainerService.HintSize="388,60" sap2010:WorkflowViewState.IdRef="RunScript_1" ScriptFile="Scripts\convertPDF.py" />
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>
